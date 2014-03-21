@@ -1,0 +1,1 @@
+lifeticker is a tool to help us arrange and record personal life
