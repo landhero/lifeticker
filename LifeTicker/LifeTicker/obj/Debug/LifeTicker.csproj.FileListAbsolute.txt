@@ -1,0 +1,13 @@
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\bin\Debug\LifeTicker.exe.config
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\bin\Debug\LifeTicker.exe
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\bin\Debug\LifeTicker.pdb
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\obj\Debug\LifeTicker.csprojResolveAssemblyReference.cache
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\obj\Debug\MainWindow.baml
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\obj\Debug\MainWindow.g.cs
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\obj\Debug\App.g.cs
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\obj\Debug\LifeTicker_MarkupCompile.cache
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\obj\Debug\LifeTicker.g.resources
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\obj\Debug\LifeTicker.Properties.Resources.resources
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\obj\Debug\LifeTicker.csproj.GenerateResource.Cache
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\obj\Debug\LifeTicker.exe
+D:\weiyun\workspace\github\lifeticker\LifeTicker\LifeTicker\obj\Debug\LifeTicker.pdb
