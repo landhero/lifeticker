@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="DataHelper.cs" />
     <Compile Include="Issue.cs" />
+    <Compile Include="IssueInfo.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
