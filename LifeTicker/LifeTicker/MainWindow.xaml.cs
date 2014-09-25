@@ -24,5 +24,10 @@ namespace LifeTicker
         {
             InitializeComponent();
         }
+        //load issues into the main panel
+        public void loadIssues()
+        {
+
+        }
     }
 }
