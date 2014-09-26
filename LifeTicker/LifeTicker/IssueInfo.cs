@@ -11,5 +11,5 @@ namespace LifeTicker
         public string Title { get; set; }
         public IssueStatus Status { get; set; }
     }
-    enum IssueStatus {Ready, Doing, Blocked, Finished}
+    [Flags] enum IssueStatus {Ready, Doing, Blocked, Finished}
 }
