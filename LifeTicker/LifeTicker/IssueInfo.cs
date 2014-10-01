@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace LifeTicker
 {
-    class IssueInfo
+    public class IssueInfo
     {
         public string Title { get; set; }
         public IssueStatus Status { get; set; }
     }
-    [Flags] enum IssueStatus {Ready, Doing, Blocked, Finished}
+    [Flags] public enum IssueStatus {Ready, Doing, Blocked, Finished}
 }
