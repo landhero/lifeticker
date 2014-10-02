@@ -61,7 +61,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataHelper.cs" />
+    <Compile Include="IssueManager.cs" />
     <Compile Include="Issue.cs" />
     <Compile Include="IssueInfo.cs" />
     <Compile Include="MainWindow.xaml.cs">

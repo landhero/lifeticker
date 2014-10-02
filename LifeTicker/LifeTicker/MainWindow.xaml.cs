@@ -20,6 +20,7 @@ namespace LifeTicker
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DataGrid grid_issues;
         public MainWindow()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace LifeTicker
             panel_issues.Children.Add(button_add_issue);
             outmost_panel.Children.Add(panel_issues);
 
-            DataGrid grid_issues = new DataGrid();   // data grid for issues
+            grid_issues = new DataGrid();   // data grid for issues
             grid_issues.AutoGenerateColumns = false;
             DataGridTextColumn col_title = new DataGridTextColumn();   // Title Column
             col_title.Header = "Title";
@@ -48,7 +49,7 @@ namespace LifeTicker
             col_status.Header = "Status";
             col_status.Binding = new Binding("Status");
             grid_issues.Columns.Add(col_status);
-            grid_issues.ItemsSource = DataHelper.getIssueInfos(); // Set the source and show it
+            grid_issues.ItemsSource = IssueManager.getIssueInfos(); // Set the source and show it
             Grid.SetRow(grid_issues, 0);
             Grid.SetColumn(grid_issues, 0); 
             outmost_panel.Children.Add(grid_issues);
@@ -57,7 +58,8 @@ namespace LifeTicker
         public void handle_add_issue(object sender, RoutedEventArgs e) {
             IssueInfo info = add_issue();
             if (info != null) {
-                // do something
+                IssueManager.addIssue(info);
+                grid_issues.ItemsSource = IssueManager.getIssueInfos();
             }
         }
 
