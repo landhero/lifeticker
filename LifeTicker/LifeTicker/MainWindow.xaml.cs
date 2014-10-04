@@ -45,11 +45,13 @@ namespace LifeTicker
             col_title.Header = "Title";
             col_title.Binding = new Binding("Title");
             grid_issues.Columns.Add(col_title);
-            DataGridTextColumn col_status = new DataGridTextColumn();   // Status Column
+            DataGridComboBoxColumn col_status = new DataGridComboBoxColumn();
             col_status.Header = "Status";
-            col_status.Binding = new Binding("Status");
+            col_status.ItemsSource = Enum.GetValues(typeof(IssueStatus)).Cast<IssueStatus>();
+            col_status.SelectedItemBinding = new Binding("Status");
             grid_issues.Columns.Add(col_status);
             grid_issues.ItemsSource = IssueManager.getIssueInfos(); // Set the source and show it
+            grid_issues.CurrentCellChanged += this.handleCellEditEnding;
             Grid.SetRow(grid_issues, 0);
             Grid.SetColumn(grid_issues, 0); 
             outmost_panel.Children.Add(grid_issues);
@@ -69,6 +71,9 @@ namespace LifeTicker
                 return dialog.getIssueInfo();
             }
             return null;
+        }
+        private void handleCellEditEnding(object sender,  EventArgs e){
+            IssueManager.doSave();
         }
 
     }
