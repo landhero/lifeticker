@@ -5,20 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.Xml;
+using com.zhanghs.lifeticker.model;
+using com.zhanghs.lifeticker.view;
 
-namespace LifeTicker
+namespace com.zhanghs.lifeticker.controller
 {
     class IssueManager
     {
         public static String DATA_DIR = "D:/weiyun/notes/lifeticker/";
         private static String path_issues = DATA_DIR + "issues.xml";
-        private static List<IssueInfo> issue_infos;
-        private static XmlDocument xml_doc;
-        private static XmlElement root_element;
+        private  List<IssueInfo> issue_infos;
+        private  XmlDocument xml_doc;
+        private  XmlElement root_element;
+        private  DataGridIssue datagrid_issue;
+        public void init() {
+            datagrid_issue = new DataGridIssue();
+            getIssueInfos();
+            datagrid_issue.ItemsSource = issue_infos;
+            datagrid_issue.CurrentCellChanged += handleCurrentCellChanged;
+        }
 
+        public DataGridIssue getDataGridIssue() {
+            return datagrid_issue;
+        }
 
         //return all Issues with information
-        public static List<IssueInfo> getIssueInfos()
+        private List<IssueInfo> getIssueInfos()
         {
             XmlDocument dom = new XmlDocument();
             dom.Load(path_issues);
@@ -35,7 +47,7 @@ namespace LifeTicker
             issue_infos = rlt;
             return rlt;
         }
-        public static void doSave(){
+        private void doSave(){
             root_element.IsEmpty = true;
             foreach(IssueInfo info in issue_infos)
             {
@@ -43,15 +55,8 @@ namespace LifeTicker
             }
             xml_doc.Save(path_issues);
         }
-        public static void addIssue(IssueInfo info) {
-            issue_infos.Add(info);
-            root_element.AppendChild(info.toXmlElementWithXmlDocument(xml_doc));
+        private void handleCurrentCellChanged(object sender, EventArgs e) {
             doSave();
-        }
-        public static void updateIssueTitle(IssueInfo info) { 
-
-        }
-        public static void updateIssueStatus(IssueInfo info) { 
         }
     }
 }

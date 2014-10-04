@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LifeTicker
+namespace com.zhanghs.lifeticker.controller.model
 {
     public class Issue
     {

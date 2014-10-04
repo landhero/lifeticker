@@ -1,4 +1,4 @@
-﻿<Window x:Class="LifeTicker.MainWindow"
+﻿<Window x:Class="com.zhanghs.lifeticker.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="LifeTicker" Height="600" Width="800">

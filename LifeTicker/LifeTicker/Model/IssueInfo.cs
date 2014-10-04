@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace LifeTicker
+namespace com.zhanghs.lifeticker.model
 {
     public class IssueInfo
     {
