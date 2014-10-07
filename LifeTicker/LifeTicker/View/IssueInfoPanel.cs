@@ -10,13 +10,17 @@ using System.Windows;
 
 namespace com.zhanghs.lifeticker.view
 {
-    class IssueInfoPanel : WrapPanel
+    class IssueEditEventArgs : EventArgs {
+        public IssueEditEventArgs(IssueInfo info) {
+            this.Info = info;
+        }
+        public IssueInfo Info { get; private set; }
+    }
+    class IssueInfoPanel : StackPanel
     {
+        public event EventHandler<IssueEditEventArgs> IssueEditBegin;
         private IssueInfo info;
         private CheckBox checkBox;
-        private Label label;
-        private Button button;
-        private Hyperlink hyperLink;
         public IssueInfoPanel(IssueInfo info) {
             this.info = info;
             InitComponents();
@@ -40,8 +44,11 @@ namespace com.zhanghs.lifeticker.view
         {
             return checkBox.IsChecked.GetValueOrDefault(false);
         }
+
         public void handleClicked(object sender, EventArgs e) {
-            Console.Write("test");
+            EventHandler<IssueEditEventArgs> issueEditStart = IssueEditBegin;
+            if (issueEditStart != null)
+                issueEditStart(this, new IssueEditEventArgs(info));
         }
     }
     

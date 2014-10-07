@@ -55,8 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="controller\commands\AbstractCommand.cs" />
+    <Compile Include="controller\commands\IssueTitleChangedCommand.cs" />
     <Compile Include="model\IssueInfoDocument.cs" />
     <Compile Include="view\DataGridIssue.cs" />
+    <Compile Include="view\IssueEditPage.cs" />
     <Compile Include="view\IssueInfoPanel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -102,9 +105,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="controller\commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

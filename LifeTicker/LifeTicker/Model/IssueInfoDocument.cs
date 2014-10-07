@@ -31,7 +31,6 @@ namespace com.zhanghs.lifeticker.model
             }
         }
 
-
         public List<IssueInfo> InfoIssues(){
             return infoIssues;
         }
@@ -45,6 +44,7 @@ namespace com.zhanghs.lifeticker.model
             }
             xmlDoc.Save(Path);
         }
+
 
         private XmlDocument xmlDoc;
         private XmlElement rootElement;
