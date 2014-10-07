@@ -9,6 +9,8 @@ namespace com.zhanghs.lifeticker.model
 {
     public class IssueInfo
     {
+        private string title;
+        private IssueStatus status;
         public IssueInfo() {
             _id = IssueInfo.getCurrentID();
         }
@@ -33,14 +35,16 @@ namespace com.zhanghs.lifeticker.model
             return node;
         }
 
-        public string Title { get; set; }
+        public string Title {get;set;}
+
         public IssueStatus Status { get; set; }
-        
+
         private string _id;
         private static string getCurrentID()
         {
             return System.DateTime.Now.ToString("yyyyMMddHHmmssfff");
         }
     }
+
     [Flags] public enum IssueStatus {Ready, Doing, Blocked, Finished}
 }

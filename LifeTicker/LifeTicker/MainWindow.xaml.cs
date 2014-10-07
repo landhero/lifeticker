@@ -34,9 +34,13 @@ namespace com.zhanghs.lifeticker
             outmost_panel.Children.Clear();
 
             WrapPanel panel_issues = new WrapPanel();
+            panel_issues.Orientation = Orientation.Vertical;
             IssueManager im = new IssueManager();
             im.init();
-            panel_issues.Children.Add(im.getDataGridIssue());
+            foreach (var ui in im.InfoPanels()) {
+                panel_issues.Children.Add(ui);
+            }
+            //panel_issues.Children.Add(im.getDataGridIssue());
             outmost_panel.Children.Add(panel_issues);
         }
 

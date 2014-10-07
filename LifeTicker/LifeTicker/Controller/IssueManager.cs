@@ -14,46 +14,29 @@ namespace com.zhanghs.lifeticker.controller
     {
         public static String DATA_DIR = "D:/weiyun/notes/lifeticker/";
         private static String path_issues = DATA_DIR + "issues.xml";
-        private  List<IssueInfo> issue_infos;
-        private  XmlDocument xml_doc;
-        private  XmlElement root_element;
+        private IssueInfoDocument infoDocument;
         private  DataGridIssue datagrid_issue;
         public void init() {
             datagrid_issue = new DataGridIssue();
-            getIssueInfos();
-            datagrid_issue.ItemsSource = issue_infos;
+            infoDocument = new IssueInfoDocument(path_issues);
+            datagrid_issue.ItemsSource = infoDocument.InfoIssues();
             datagrid_issue.CurrentCellChanged += handleCurrentCellChanged;
+        }
+
+        public List<IssueInfoPanel> InfoPanels() {
+            List<IssueInfoPanel> rlt = new List<IssueInfoPanel>();
+            foreach (IssueInfo info in infoDocument.InfoIssues()) {
+                rlt.Add(new IssueInfoPanel(info));
+            }
+            return rlt;
         }
 
         public DataGridIssue getDataGridIssue() {
             return datagrid_issue;
         }
 
-        //return all Issues with information
-        private List<IssueInfo> getIssueInfos()
-        {
-            XmlDocument dom = new XmlDocument();
-            dom.Load(path_issues);
-            List<IssueInfo> rlt = new List<IssueInfo>();
-            XmlElement root = dom.DocumentElement;
-            XmlNodeList list = root.GetElementsByTagName("Issue");
-            System.Collections.IEnumerator itr = list.GetEnumerator();
-            while (itr.MoveNext())
-            {
-                rlt.Add(new IssueInfo((XmlNode)itr.Current));
-            }
-            xml_doc = dom;
-            root_element = root;
-            issue_infos = rlt;
-            return rlt;
-        }
         private void doSave(){
-            root_element.IsEmpty = true;
-            foreach(IssueInfo info in issue_infos)
-            {
-                root_element.AppendChild(info.toXmlElementWithXmlDocument(xml_doc));
-            }
-            xml_doc.Save(path_issues);
+            infoDocument.Save();
         }
         private void handleCurrentCellChanged(object sender, EventArgs e) {
             doSave();
